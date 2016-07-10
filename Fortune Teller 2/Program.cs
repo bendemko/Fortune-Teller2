@@ -43,7 +43,7 @@ namespace Fortune_Teller_2
            
          
          
-            while (favoriteColor == "Help")
+            while (favoriteColor.ToUpper() == "HELP")
             
             {
                 Console.WriteLine("A ROYGBIV color includes Red, Orange, Yellow, Green, Blue, Indigo and Violet.  Which do you choose?: ");
@@ -137,7 +137,7 @@ namespace Fortune_Teller_2
 
             //This prints out the user's fortune:
 
-            Console.WriteLine(""+ firstName +" "+ lastName +" will retire in "+ yearsToRetirement +" years with "+ money +" dollars in the bank, a vacation home in "+ numberOfSiblings +" and a "+ favoriteColor +"");
+            Console.WriteLine(""+ firstName +" "+ lastName +" will retire in "+ yearsToRetirement +" years with "+ money +" dollars in the bank, a vacation home in "+ numberOfSiblings +" and a "+ favoriteColor +".");
 
 
 
