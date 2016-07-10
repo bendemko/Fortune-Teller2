@@ -10,48 +10,24 @@ namespace Fortune_Teller_2
     {
         static void Main(string[] args)
         {
-            //Read the user's first name from the user
+            //Ask and read the user's first name
             Console.WriteLine("What is your first name?: ");
             String firstName = Console.ReadLine();
             
-            //Read the user's last name from the user
+            //Ask abd read the user's last name
             Console.WriteLine("What is your last name?: ");
-            String lasttName = Console.ReadLine();
+            String lastName = Console.ReadLine();
             
-            //Read the user's age from the user
+            //Ask and read the user's age
             Console.WriteLine("What is your age?: ");
             string ageAsAString = Console.ReadLine();
-            int age = Convert.ToInt32(ageAsAString);
+            double yearsToRetirement = Convert.ToDouble(ageAsAString);
             
-            //Read the user's birth month from the user
+            //Ask and read the user's birth month
             Console.WriteLine("What is your birth month?: ");
             String birthMonth = Console.ReadLine();
 
-            //string[] months = new string[12];
-            //months[0] = "January";
-            //months[1] = "February";
-            //months[2] = "March";
-            //months[3] = "April";
-            //months[4] = "May";
-            //months[5] = "June";
-            //months[6] = "July";
-            //months[7] = "August";
-            //months[8] = "September";
-            //months[9] = "October";
-            //months[10] = "November";
-            //months[11] = "December";
-
-
-
-
-
-
-
-
-
-
-
-            //Read the user's favorite color from the user
+            //Ask and read the user's favorite color
             Console.WriteLine("What is your favorite ROYGBIV color?  If you don't know what a ROYGBIV color is, enter \"Help\": ");
             string favoriteColor = Console.ReadLine();
          
@@ -61,17 +37,16 @@ namespace Fortune_Teller_2
                 Console.WriteLine("A ROYGBIV color includes Red, Orange, Yellow, Green, Blue, Indigo and Violet.  Which do you choose?: ");
                 favoriteColor = Console.ReadLine();
             }
-            
-                                                                      
-            //Read the number of siblings from the user
+                                                                                  
+            //Ask and read the number of siblings the user has
             Console.WriteLine("How many siblings do you have?: ");
             string numberOfSiblings = Console.ReadLine();
             
             //This determines the user's time to retirement            
-                if (age % 2 == 1)
-                age = 3;
-                else if (age % 2 == 0)
-                age = 5;
+                if (yearsToRetirement % 2 == 1)
+                yearsToRetirement = 7;
+                else if (yearsToRetirement % 2 == 0)
+                yearsToRetirement = 31.5;
 
             //This determines where the user will live
                 if (numberOfSiblings == "0")
@@ -101,35 +76,60 @@ namespace Fortune_Teller_2
             else if (favoriteColor == "Violet")
             favoriteColor = "cat";
 
-            //This determines the user's money
-            if (birthMonth == "1")
-                birthMonth = "January";
-            if (birthMonth == "2")
-                birthMonth = "February";
-            if (birthMonth == "3")
-                birthMonth = "March";
-            if (birthMonth == "4")
-                birthMonth = "April";
-            if (birthMonth == "5")
-                birthMonth = "May";
-            if (birthMonth == "6")
-                birthMonth = "June";
-            if (birthMonth == "7")
-                birthMonth = "July";
-            if (birthMonth == "8")
-                birthMonth = "August";
-            if (birthMonth == "9")
-                birthMonth = "September";
-            if (birthMonth == "10")
-                birthMonth = "October";
-            if (birthMonth == "11")
-                birthMonth = "November";
-            if (birthMonth == "12")
-                birthMonth = "December";
+            //This determines the user's bank account
+
+            //This find's the letter at a particular position in the user's birth month.
+            char c0 = birthMonth[0];
+            char c1 = birthMonth[1];
+            char c2 = birthMonth[2];
+
+            //This searches the user's first name and determines whether the (0,1st,2nd,3rd...etc) 
+            //letter in their birth month is found in their first or last name. 
+            int firstNameResult0 = firstName.IndexOf(c0);
+            int lastNameResult0 = lastName.IndexOf(c0);
+            int firstNameResult1 = firstName.IndexOf(c1);
+            int lastNameResult1 = lastName.IndexOf(c1);
+            int firstNameResult2 = firstName.IndexOf(c2);
+            int lastNameResult2 = lastName.IndexOf(c2);
 
 
+            //This adds up the result
+            int finalResult0 = (firstNameResult0 + lastNameResult0);
+            int finalResult1 = (firstNameResult1 + lastNameResult1);
+            int finalResult2 = (firstNameResult2 + lastNameResult2);
 
-            Console.WriteLine(""+ firstName +" will retire in " + age +" years and live in "+ numberOfSiblings +". He will ride a "+ favoriteColor +"");
+            int money;
+
+            if (finalResult0 >= -1)
+            {
+                money = 50;
+            }
+
+            else if (finalResult1 >= -1)
+            {
+                money = 100;
+            }
+
+            else if (finalResult2 >= -1)
+            {
+                money = 200;
+            }
+
+            else
+            {
+                money = 0;
+            }
+
+
+            //This prints out the user's fortune:
+
+            Console.WriteLine(""+ firstName +" "+ lastName +" will retire in "+ yearsToRetirement +" years with "+ money +" dollars in the bank, a vacation home in "+ numberOfSiblings +" and a "+ favoriteColor +"");
+
+
+            //This asks the user if they would like to try again
+            Console.WriteLine("Would you like to try again?");
+            string tryAgain = Console.ReadLine();
+
             
             Console.ReadKey();
 
