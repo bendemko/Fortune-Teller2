@@ -9,27 +9,39 @@ namespace Fortune_Teller_2
     class Program
     {
         static void Main(string[] args)
+
+        
         {
+            while(true)
+
+            { 
+
             //Ask and read the user's first name
             Console.WriteLine("What is your first name?: ");
             String firstName = Console.ReadLine();
+            Console.Clear();
             
             //Ask abd read the user's last name
             Console.WriteLine("What is your last name?: ");
             String lastName = Console.ReadLine();
-            
-            //Ask and read the user's age
+            Console.Clear();
+
+             //Ask and read the user's age
             Console.WriteLine("What is your age?: ");
             string ageAsAString = Console.ReadLine();
             double yearsToRetirement = Convert.ToDouble(ageAsAString);
-            
+            Console.Clear();
+
             //Ask and read the user's birth month
             Console.WriteLine("What is your birth month?: ");
             String birthMonth = Console.ReadLine();
+            Console.Clear();
 
             //Ask and read the user's favorite color
             Console.WriteLine("What is your favorite ROYGBIV color?  If you don't know what a ROYGBIV color is, enter \"Help\": ");
             string favoriteColor = Console.ReadLine();
+           
+         
          
             while (favoriteColor == "Help")
             
@@ -37,12 +49,14 @@ namespace Fortune_Teller_2
                 Console.WriteLine("A ROYGBIV color includes Red, Orange, Yellow, Green, Blue, Indigo and Violet.  Which do you choose?: ");
                 favoriteColor = Console.ReadLine();
             }
-                                                                                  
-            //Ask and read the number of siblings the user has
-            Console.WriteLine("How many siblings do you have?: ");
-            string numberOfSiblings = Console.ReadLine();
-            
-            //This determines the user's time to retirement            
+            Console.Clear();
+
+             //Ask and read the number of siblings the user has
+             Console.WriteLine("How many siblings do you have?: ");
+             string numberOfSiblings = Console.ReadLine();
+             Console.Clear();
+
+                //This determines the user's time to retirement            
                 if (yearsToRetirement % 2 == 1)
                 yearsToRetirement = 7;
                 else if (yearsToRetirement % 2 == 0)
@@ -50,31 +64,31 @@ namespace Fortune_Teller_2
 
             //This determines where the user will live
                 if (numberOfSiblings == "0")
-                numberOfSiblings = "Boston";
+                numberOfSiblings = "Belize";
                 else if (numberOfSiblings == "1")
-                numberOfSiblings = "Cleveland";
+                numberOfSiblings = "Outer Siberia";
                 if (numberOfSiblings == "2")
-                numberOfSiblings = "Miami";
+                numberOfSiblings = "North Korea";
                 else if (numberOfSiblings == "3")
-                numberOfSiblings = "Orlando";
+                numberOfSiblings = "Costa Rica";
                 else
-                numberOfSiblings = "New York";
+                numberOfSiblings = "Italy";
 
             //This determines the user's mode of transport
-            if (favoriteColor == "Red")
-                favoriteColor = "car";
-            else if (favoriteColor == "Orange")
-                favoriteColor = "horse";
-            else if (favoriteColor == "Yellow")
-                favoriteColor = "Pig";
-            else if (favoriteColor == "Green")
-                favoriteColor = "fish";
-            else if (favoriteColor == "Blue")
-                favoriteColor = "walrus";
-            else if (favoriteColor == "Indigo")
-                favoriteColor = "dog";
-            else if (favoriteColor == "Violet")
-            favoriteColor = "cat";
+            if (favoriteColor.ToUpper() == "RED")
+                favoriteColor = "Ferrari";
+            else if (favoriteColor.ToUpper() == "ORANGE")
+                favoriteColor = "sailboat";
+            else if (favoriteColor.ToUpper() == "YELLOW")
+                favoriteColor = "pickup truck";
+            else if (favoriteColor.ToUpper() == "GREEN")
+                favoriteColor = "rusted bicycle";
+            else if (favoriteColor.ToUpper() == "BLUE")
+                favoriteColor = "Buick";
+            else if (favoriteColor.ToUpper() == "INDIGO")
+                favoriteColor = "VW bus";
+            else if (favoriteColor.ToUpper() == "VIOLET")
+            favoriteColor = "crap station wagon";
 
             //This determines the user's bank account
 
@@ -102,17 +116,17 @@ namespace Fortune_Teller_2
 
             if (finalResult0 >= -1)
             {
-                money = 50;
+                money = 40000;
             }
 
             else if (finalResult1 >= -1)
             {
-                money = 100;
+                money = 100000;
             }
 
             else if (finalResult2 >= -1)
             {
-                money = 200;
+                money = 1000000;
             }
 
             else
@@ -126,11 +140,19 @@ namespace Fortune_Teller_2
             Console.WriteLine(""+ firstName +" "+ lastName +" will retire in "+ yearsToRetirement +" years with "+ money +" dollars in the bank, a vacation home in "+ numberOfSiblings +" and a "+ favoriteColor +"");
 
 
-            //This asks the user if they would like to try again
-            Console.WriteLine("Would you like to try again?");
-            string tryAgain = Console.ReadLine();
 
-            
+                //This asks the user if they would like to try again
+                Console.Write("Would you like to try again y/n?: ");
+                string again = Console.ReadLine();
+
+                if (again.ToLower() != "y")
+                {
+                    Console.WriteLine("GoodBye");
+                    break;
+                }
+            }
+
+
             Console.ReadKey();
 
         }
